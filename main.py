@@ -2,7 +2,7 @@ import os
 import random
 
 # Ruta a la carpeta con tus wallpapers
-wallpaper_folder = '/home/ricardo/Imágenes/wallpapers'
+wallpaper_folder = input("Ingresa la ruta absoluta de la carpeta wallpapers: ")
 # Lista de imágenes soportadas
 image_extensions = ['.jpg', '.png', '.jpeg', '.webp']
 
@@ -52,8 +52,14 @@ for i in range(len(wallpapers)):
 
 xml_content += '</background>'
 
-# Guardar el archivo XML
-with open('/home/ricardo/noble.xml', 'w') as f:
+# Solicitar al usuario la ruta absoluta para guardar el archivo
+ruta = input("Ingresa la ruta absoluta para guardar el XML: ")
+
+# Concatenar el nombre del archivo a la ruta
+ruta_completa = f"{ruta}/noble.xml"
+
+# Abrir el archivo en modo escritura y guardar el contenido
+with open(ruta_completa, 'w') as f:
     f.write(xml_content)
 
 print("XML generado correctamente.")
